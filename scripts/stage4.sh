@@ -17,5 +17,5 @@ hdfs dfs -put output/evaluation.csv project/output
 beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team36 -p $password -f sql/model1_predictions.hql
 # model2
 beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team36 -p $password -f sql/model2_predictions.hql
-# evaluation 
+# evaluation
 beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team36 -p $password -f sql/evaluation.hql
