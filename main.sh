@@ -14,9 +14,9 @@ echo "Running Stage 4 of the pipeline - Streamlit"
 bash scripts/stage4.sh
 
 # Check the quality of the codes
+# trunk-ignore(shellcheck/SC2028)
 echo "The quality of scripts in 'scripts/' folder\n"
 echo "::============================================::"
 pylint scripts
-
 
 echo "Done testing the pipeline!"

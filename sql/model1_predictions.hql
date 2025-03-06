@@ -14,6 +14,6 @@ FIELDS TERMINATED BY ','
 location 'project/hive/warehouse/model1_predictions'
 tblproperties("skip.header.line.count"="1");
 
-LOAD DATA INPATH '/user/team36/project/output/model1_predictions.csv' OVERWRITE INTO TABLE model1_predictions;
+LOAD DATA INPATH '/user/team36/output/model1_predictions.csv' OVERWRITE INTO TABLE model1_predictions;
 
 select * from model1_predictions limit 5;

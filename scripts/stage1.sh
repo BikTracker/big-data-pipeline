@@ -3,6 +3,7 @@ url="https://disk.yandex.ru/d/WfsUS2K8esyCrA"
 
 rm -f data/accidents.csv
 
+# trunk-ignore(shellcheck/SC2312)
 wget "$(yadisk-direct "${url}")" -O data/accidents.csv
 
 printf "Started preprocessing\n"
@@ -17,7 +18,7 @@ password=$(head -n 1 secrets/.psql.pass)
 
 hdfs dfs -rm -R -skipTrash project/warehouse/*
 
-sqoop import-all-tables --connect jdbc:postgresql://hadoop-04.uni.innopolis.ru/team36_projectdb --username team36 --password $password --compression-codec=snappy --compress --as-avrodatafile --warehouse-dir=project/warehouse --m 1
+sqoop import-all-tables --connect jdbc:postgresql://hadoop-04.uni.innopolis.ru/team36_projectdb --username team36 --password "${password}" --compression-codec=snappy --compress --as-avrodatafile --warehouse-dir=project/warehouse --m 1
 
 mv accidents.java output/
 mv accidents.avsc output/
